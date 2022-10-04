@@ -11,3 +11,177 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+html {
+  --main-bg-color: brown;
+}
+
+/*
+
+Author : Kouloughli Hemza;
+Date : 11/2016;
+Name :Clean Modern Checkout Form;
+
+*/
+
+
+*,*:after,*:before{
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F3F6FF;
+}
+
+/* Container start */
+
+.container {
+  width: 80%;
+  height: 50%;
+  min-width: 80%;
+  min-height: 500px;
+  background-color: #F7F7F7;
+  border-radius: 10px;
+  box-shadow: 0px 0px 19px 6px #ddd;
+  overflow: hidden;
+}
+
+/* Container Ends */
+
+/* info Start Here */
+.info {
+  background: transparent;
+  z-index: 999;
+  position: absolute;
+  top: 38px;
+  left: 205px;
+  float: left;
+}
+
+.info i {
+  color:rgba(255,255,255,0.7);
+  margin-right: 10px;
+  font-weight: 900;
+  font-size:30px;
+  transition:all .4s ease;
+  cursor: pointer;
+  margin-top: 5px;
+}
+.info i:hover{
+  color:rgba(255,255,255,1);
+}
+
+.info .imag img {
+  width: 500px;
+  margin-top: 10%;
+}
+.info .imag{position: relative;}
+.info .imag a:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 16%;
+  top: 310px;
+  width: 54%;
+  max-width: 250px;
+  height: 200px;
+  background: transparent;
+  border-radius: 100px/50px;
+  box-shadow: 0 50px 40px rgba(0,0,0,.7);
+}
+.price span {
+  font-family: roboto;
+  font-size: 30px;
+  display: block;
+  padding: 0px 15px;
+  color: #000;
+  font-weight: 900;
+  color:#fff;
+  text-shadow: 0 2px 7px rgba(0, 0, 0, .4);
+}
+.price span:last-of-type {
+  font-size:20px;
+  font-weight: 600;
+}
+/* Info Ends here */
+/* Opacity */
+.colored {
+  background-color: var(--main-bg-color);
+  width: 600px;
+  height: 610px;
+  transform: skew(31deg);
+  position: relative;
+  top: 0;
+  left: -200px;
+  float: left;
+}
+
+
+/* opacity ends */
+
+
+/* -----------------------------------------------------------------*/
+
+/* form Start here */
+.form h3 {
+  font-size: 20px;
+  font-family: roboto;
+  /* font-weight: 700; */
+  letter-spacing: 1.3px;
+  word-spacing: 3px;
+  margin-top: 40px;
+}
+label {
+  display: block;
+  color: #989898;
+  font-weight: 700;
+  font-family: roboto;
+  font-size: 14px;
+  letter-spacing: 1px;
+  word-spacing: 3px;
+  margin-top: 30px;
+}
+select {
+  border: 0;
+  background-color: #f7f7f7;
+  border-bottom: 2px solid #ddd;
+  outline: none;
+  padding: 15px 30px;
+  width: 230px;
+  font-size: 14px;
+  padding-bottom: 7px;
+  font-weight: 600;
+  -webkit-appearance: none;
+  margin-top: 5px;
+}
+
+.select {
+  position: relative;
+}
+.select:after {
+  content: '\f078';
+  position: absolute;
+  right: 1em;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-family: 'FontAwesome';
+  z-index: 10;
+  color:#ddd;
+}
+
+input {
+  border: 0;
+  background-color: #f7f7f7;
+  border-bottom: 2px solid #ddd;
+  outline: none;
+  padding: 5px 30px;
+  width: 230px;
+  font-size: 14px;
+  padding-bottom: 7px;
+  font-weight: 600;
+  transition: all .5s ease-in;
+}
+input:focus {
+  border-bottom:2px solid #82C5D8;
+}

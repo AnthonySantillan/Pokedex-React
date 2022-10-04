@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import "./App.css";
 import axios from "axios";
+import InsetDividers from "./componentes/Table/table";
 
 const App = () => {
   const [pokemon, setPokemon] = useState("pikachu");
   const [pokemonData, setPokemonData] = useState([]);
   const [pokemonType, setPokemonType] = useState("");
 
+  const randomColor = "#"+((1<<24)*Math.random()|0).toString(16);
+
+  document.documentElement.style.setProperty('--main-bg-color', randomColor);
   const handleChange = (e) => {
     setPokemon(e.target.value.toLowerCase());
   };
@@ -26,8 +30,6 @@ const App = () => {
       console.log(e);
     }
   };
-  console.log(pokemonData);
-
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>
@@ -44,46 +46,22 @@ const App = () => {
       {pokemonData.map((data) => {
         return (
           <div className="flex">
-            <article className="card">
-             <img src="./images/fondo2.jpg" alt="imagen header card" class="card-header"></img>
-            
-            <div className="card-body">
-            <img className="card-body-img" src={data.sprites["front_default"]} />
-            <h1 class="card-body-title">
-                    {pokemon}
-                </h1>
+            <div className="container">
+              <div className="colored"></div>
+              <div className="info">
+                <div className="imag">
+                  <img src={data.sprites["front_default"]}/>
+                </div>
+                <div className="price">
+                  <span>Puntos de habilidad : {data.base_experience}</span>
+                </div>
+              </div>
+              <div className="form">
+                <h3>Informacion Adicional</h3>
+                <InsetDividers parentToChild={pokemonData}></InsetDividers>
+              </div>
+
             </div>
-          <div class="card-footer">
-              <table>
-                <tr>
-                  <td>
-                  <div className="card-body-text">Tipo</div>
-                  <div className="card-footer-social">{pokemonType}</div>
-                  </td>
-                
-                  <td>
-                  <div className="card-body-text">Altura</div>
-                  <div className="card-footer-social">
-                    {" "}
-                    {Math.round(data.height * 3.9)}"
-                  </div>
-                  </td>
-               
-                  <td>
-                  <div className="card-body-text">Ancho</div>
-                  <div className="card-footer-social">
-                    {" "}
-                    {Math.round(data.weight / 4.3)} lbs
-                  </div>
-                  </td>
-                  <td>
-                  <div className="card-body-text">Numero de batallas</div>
-                  <div className="card-footer-social">{data.game_indices.length}</div>
-                  </td>
-                 </tr> 
-                  </table>
-           </div>
-            </article>
           </div>
         );
       })}
@@ -92,22 +70,3 @@ const App = () => {
 };
 
 export default App;
-// const toArray = [];
-// try {
-//   const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
-//   const pokeDesc = `https://pokeapi.co/api/v2/ability/${pokemon}`;
-
-//   const resPokemon = await axios.get(url);
-//   const resPokemonEtc = await axios.get(pokeDesc);
-
-//   axios.all([resPokemon, resPokemonEtc]).then(
-//     axios.spread((...allData) => {
-//       console.log(allData);
-//     })
-//   );
-//   // console.log(res);
-//   toArray.push(res.data);
-//   setPokemonData(toArray);
-// } catch (e) {
-//   console.log(e);
-// }

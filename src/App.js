@@ -8,9 +8,23 @@ const App = () => {
   const [pokemonData, setPokemonData] = useState([]);
   const [pokemonType, setPokemonType] = useState("");
 
-  const randomColor = "#"+((1<<24)*Math.random()|0).toString(16);
-
-  document.documentElement.style.setProperty('--main-bg-color', randomColor);
+  if(pokemonType == 'fire')
+  {
+    document.documentElement.style.setProperty('--main-bg-color', 'red');
+  }
+  else if(pokemonType == 'electric')
+  {
+    document.documentElement.style.setProperty('--main-bg-color', 'yellow');
+  }
+  else if(pokemonType == 'water')
+  {
+    document.documentElement.style.setProperty('--main-bg-color', 'cyan');
+  }
+  else if(pokemonType == 'earth')
+  {
+    document.documentElement.style.setProperty('--main-bg-color', 'brown');
+  }
+  
   const handleChange = (e) => {
     setPokemon(e.target.value.toLowerCase());
   };
@@ -26,6 +40,18 @@ const App = () => {
       toArray.push(res.data);
       setPokemonType(res.data.types[0].type.name);
       setPokemonData(toArray);
+      getimages(res.data.name);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  const getimages = async (name) => {
+    const toArray = [];
+    try {
+      const url = `https://img.pokemondb.net/artwork/large/${name}.jpg`
+      // https://img.pokemondb.net/artwork/large/${props.pokemon.name}.jpg
+      const res = await axios.get(url);
+      toArray.push(res.data);
     } catch (e) {
       console.log(e);
     }
@@ -50,7 +76,8 @@ const App = () => {
               <div className="colored"></div>
               <div className="info">
                 <div className="imag">
-                  <img src={data.sprites["front_default"]}/>
+                  {/* <img src={data.sprites["front_default"]}/> */}
+                  <img src={`https://img.pokemondb.net/artwork/large/${data.name}.jpg`}/>
                 </div>
                 <div className="price">
                   <span>Puntos de habilidad : {data.base_experience}</span>

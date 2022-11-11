@@ -1,13 +1,6 @@
 html {
     --main-bg-color: brown;
 }
-.head{
-    color: white;
-    background-color: var(--main-bg-color);
-    margin-bottom: 10px;
-    font-size: 30px;
-    border-radius:30px;
-}
 
 .information{
     color: black;
@@ -19,21 +12,41 @@ html {
 }
 .right{
     position: absolute;
-    margin-left: 950px;
+    margin-left: 43%;
+    margin-top: -40%;
     background-color: var(--main-bg-color);
     float: right;
     border-radius: 50% 0%  10% 40%;
+    box-shadow: 10px 10px 10px grey;
     z-index: 10;
+    transition: all 1s;
+    opacity: 0.8;
+}
+.right:hover{
+    position: absolute;
+    margin-left: 45%;
+    margin-top: -45%;
+    background-color: var(--main-bg-color);
+    float: right;
+    border-radius: 50% 50%  50% 50%;
+    box-shadow: 10px 10px 10px grey;
+    z-index: 10;
+    opacity: 1;
 }
 .left{
-    position: absolute;
+    background-color: black;
     float: left;
-    color: black;
-    margin-left: 500px;
-    margin-bottom: 10px;
-    font-size: 30px;
-    border-radius:30px;
+    width: 50%;
+    /* margin-left: 25%; */
+    margin-top: -45%;
+    position: absolute;
     z-index: 9;
+}
+.left h2{
+    color: rgb(253, 251, 251);
+    font-size: 15px;
+    margin-left: 25%;
+    text-transform: uppercase;
 }
 .shiny img {
     width: 25px;
@@ -41,3 +54,25 @@ html {
     float: right;
 }
 .shiny{position: relative;}
+
+.shiny img:hover {
+    width: 50px;
+    margin-top: 10%;
+    float: right;
+}
+.center
+{
+    float: left;
+    width: 50%;
+    /* margin-left: 25%; */
+    margin-top: -42%;
+    position: absolute;
+    color: rgb(12, 12, 12);
+    z-index: 9; 
+    text-decoration: none;
+    list-style: none;
+}
+.center ul li
+{
+    list-style: none;
+}
